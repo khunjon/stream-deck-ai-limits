@@ -20,6 +20,22 @@
 			]
 		},
 		{
+			"Name": "Claude Credits",
+			"UUID": "com.singerous.ai-limits.claude-credits",
+			"Icon": "imgs/actions/credits/icon",
+			"Tooltip": "Show Claude extra-usage credits (pay-as-you-go) spend and monthly cap.",
+			"PropertyInspectorPath": "ui/credits.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/credits/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
 			"Name": "Codex Usage",
 			"UUID": "com.singerous.ai-limits.codex-usage",
 			"Icon": "imgs/actions/codex/icon",

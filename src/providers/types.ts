@@ -58,6 +58,32 @@ export interface UsageSnapshot {
 	 * percentage. Defaults to {@link DEFAULT_THRESHOLDS} when absent.
 	 */
 	thresholds?: StatusThresholds;
+	/**
+	 * Pay-as-you-go usage credits, when the provider reports them (Claude: `extra_usage`).
+	 * Absent when the provider has no credits concept; `enabled: false` when the account has
+	 * the feature turned off. Consumed only by the credits action — the combined and
+	 * single-window renderers ignore it.
+	 */
+	credits?: CreditsInfo;
+}
+
+/**
+ * Normalized usage-credits state (e.g. Claude "extra usage").
+ *
+ * Monetary values are in **major units** (e.g. dollars) — the normalizer applies the
+ * provider's minor-unit conversion. Any field can be `null`: the endpoint reports `null`
+ * values while the feature is disabled, and the enabled shape is unofficial.
+ */
+export interface CreditsInfo {
+	enabled: boolean;
+	/** Percentage of the monthly credit cap used, 0..100 rounded. */
+	usedPercent: number | null;
+	/** Credits consumed this month, in major units. */
+	used: number | null;
+	/** Monthly credit cap, in major units. */
+	limit: number | null;
+	/** ISO 4217 currency code, e.g. `"USD"`. */
+	currency: string | null;
 }
 
 /**

@@ -1,5 +1,6 @@
 import streamDeck from "@elgato/streamdeck";
 
+import { ClaudeCreditsAction } from "./actions/claude-credits-action.ts";
 import { ClaudeUsageAction } from "./actions/claude-usage-action.ts";
 import { CodexUsageAction } from "./actions/codex-usage-action.ts";
 import { SingleWindowAction } from "./actions/single-window-action.ts";
@@ -10,6 +11,7 @@ streamDeck.logger.setLevel("info");
 
 // Register the usage actions.
 streamDeck.actions.registerAction(new ClaudeUsageAction());
+streamDeck.actions.registerAction(new ClaudeCreditsAction());
 streamDeck.actions.registerAction(new CodexUsageAction());
 streamDeck.actions.registerAction(new SingleWindowAction());
 

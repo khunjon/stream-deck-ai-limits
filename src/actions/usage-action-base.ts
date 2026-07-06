@@ -41,6 +41,11 @@ export abstract class UsageActionBase extends SingletonAction<UsageActionSetting
 	protected abstract readonly providerId: UsageProvider;
 	protected abstract createProvider(config: ResolvedUsageSettings): Provider;
 
+	/** Render a snapshot to SVG. Subclasses with a specialized view (e.g. credits) override. */
+	protected renderSnapshot(snapshot: UsageSnapshot): string {
+		return renderUsageIcon(snapshot);
+	}
+
 	override async onWillAppear(ev: WillAppearEvent<UsageActionSettings>): Promise<void> {
 		if (!ev.action.isKey()) {
 			return;
@@ -122,6 +127,6 @@ export abstract class UsageActionBase extends SingletonAction<UsageActionSetting
 				stale: false,
 			};
 		}
-		await runtime.action.setImage(toDataUrl(renderUsageIcon(snapshot)));
+		await runtime.action.setImage(toDataUrl(this.renderSnapshot(snapshot)));
 	}
 }
