@@ -66,6 +66,22 @@
 					"TitleAlignment": "middle"
 				}
 			]
+		},
+		{
+			"Name": "Reset Countdown",
+			"UUID": "com.singerous.ai-limits.reset-countdown",
+			"Icon": "imgs/actions/reset/icon",
+			"Tooltip": "Time remaining until your Claude 5-hour and weekly limits reset.",
+			"PropertyInspectorPath": "ui/reset.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/reset/key",
+					"TitleAlignment": "middle"
+				}
+			]
 		}
 	],
 	"Category": "Claude & Codex Usage",
