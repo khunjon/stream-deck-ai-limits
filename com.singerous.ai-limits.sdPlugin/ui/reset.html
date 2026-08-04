@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="utf-8" />
+		<title>Reset Countdown Settings</title>
+		<script src="https://sdpi-components.dev/releases/v4/sdpi-components.js"></script>
+	</head>
+	<body>
+		<sdpi-item label="Refresh interval (sec)">
+			<sdpi-range setting="refreshIntervalSec" min="60" max="600" step="5" default="120" showlabels></sdpi-range>
+		</sdpi-item>
+
+		<sdpi-item>
+			<small style="color: var(--sdpi-color-muted, #999);">
+				Shows time left until your Claude limits reset — 5-hour (big) and weekly (small). Reads
+				Claude Code’s login automatically; no setup needed. The countdown ticks every minute and
+				re-fetches at the interval above.
+			</small>
+		</sdpi-item>
+	</body>
+</html>
